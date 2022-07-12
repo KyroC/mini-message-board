@@ -1,4 +1,7 @@
 /* Sample Messages */
+var express = require('express');
+var router = express.Router();
+
 const messages = [
   {
     text: "Hi there!",
@@ -11,14 +14,14 @@ const messages = [
     added: new Date()
   }
 ];
-
-
-var express = require('express');
-var router = express.Router();
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Mini Message Board', messages: messages });
 });
+/*Push new message */
+router.post('/new', function(req,res,next) {
+  messages.push({text:req.body.textMessage, user: req.body.userName, added: new Date()})
+  res.redirect('/')
+})
 
 module.exports = router;

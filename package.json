@@ -14,5 +14,5 @@
     "nodemon": "^2.0.19",
     "pug": "2.0.0-beta11"
   },
-  "engines": { "node": "16.15.1" }
+  "engines": { "node": "16.x" }
 }

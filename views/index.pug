@@ -1,5 +1,12 @@
-extends layout
+doctype html 
 
+html
+  head 
 block content
   h1= title
   p Welcome to #{title}
+  for message in messages 
+    ul 
+      each val, key in message 
+        li= key + ": " + val
+  a(href="/new") New Message
